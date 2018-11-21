@@ -12,7 +12,7 @@
  ;; If there is more than one, they won't work right.
  )
 (add-hook 'after-init-hook'global-company-mode)
-;;------------ÓïÑÔ»·¾³×Ö·û¼¯ÉèÖÃ(utf-8)-------------
+;;------------è¯­è¨€ç¯å¢ƒå­—ç¬¦é›†è®¾ç½®(utf-8)-------------
 
 (set-language-environment 'Chinese-GB)
 (set-keyboard-coding-system 'utf-8)
@@ -26,18 +26,18 @@
 (setq-default pathname-coding-system 'utf-8)
 (set-file-name-coding-system 'utf-8)
 (setq ansi-color-for-comint-mode t)
-;;´¦Àíshell-modeÂÒÂë,ºÃÏñÃ»×÷ÓÃ
+;;å¤„ç†shell-modeä¹±ç ,å¥½åƒæ²¡ä½œç”¨
 
-;;------ÓïÑÔ»·¾³×Ö·û¼¯ÉèÖÃ½áÊø------------
+;;------è¯­è¨€ç¯å¢ƒå­—ç¬¦é›†è®¾ç½®ç»“æŸ------------
 
-;;--------------´°¿Ú½çÃæÉèÖÃ------------------
+;;--------------çª—å£ç•Œé¢è®¾ç½®------------------
 
 (set-foreground-color "black")
 (set-background-color "grey")
 (set-cursor-color "purple")
 (set-mouse-color "purple")
 
-;;Æô¶¯ÉèÖÃ
+;;å¯åŠ¨è®¾ç½®
 (setq default-frame-alist
              '((vertical-scroll-bars)
                (top . 25)
@@ -53,13 +53,13 @@
                (right-fringe)
                (left-fringe)))
 
-;; Æô¶¯×Ô¶¯×î´ó»¯(Êı¾İ×Ô¶¯µ÷Õû,×¢Òâ¸ñÊ½,Èç(top . 0),Ô²µãÇ°ºó¶¼ÒªÁôÓĞ¿Õ¸ñ)
+;; å¯åŠ¨è‡ªåŠ¨æœ€å¤§åŒ–(æ•°æ®è‡ªåŠ¨è°ƒæ•´,æ³¨æ„æ ¼å¼,å¦‚(top . 0),åœ†ç‚¹å‰åéƒ½è¦ç•™æœ‰ç©ºæ ¼)
 ;;(setq initial-frame-alist '((top . 0) (left . 0) (width . 142) (height . 49)))
 
 ;;(custom-set-variables 'scroll-bar-mode' right)
-;; ÉèÖÃ¹ö¶¯ÌõÄ¬ÈÏÔÚÓÒ±ß
+;; è®¾ç½®æ»šåŠ¨æ¡é»˜è®¤åœ¨å³è¾¹
 
-;; ÉèÖÃÁíÍâÒ»Ğ©ÑÕÉ«,Óï·¨µÄ¸ßÁÁÏÔÊ¾µÄÖ÷ÌâºÍ±³¾°,ÇøÓòÑ¡ÔñµÄ±³¾°ÓëÖ÷Ìâ,¶ş´ÎÑ¡ÔñµÄ±³¾°ºÍÖ÷Ìâ
+;; è®¾ç½®å¦å¤–ä¸€äº›é¢œè‰²,è¯­æ³•çš„é«˜äº®æ˜¾ç¤ºçš„ä¸»é¢˜å’ŒèƒŒæ™¯,åŒºåŸŸé€‰æ‹©çš„èƒŒæ™¯ä¸ä¸»é¢˜,äºŒæ¬¡é€‰æ‹©çš„èƒŒæ™¯å’Œä¸»é¢˜
 (set-face-foreground 'highlight "white")
 (set-face-background 'highlight "blue")
 (set-face-foreground 'region "cyan")
@@ -67,48 +67,48 @@
 (set-face-foreground 'secondary-selection "skyblue")
 (set-face-background 'secondary-selection "darkblue")
 
-;;------------´°¿Ú½çÃæÉèÖÃ½áÊø-----------------
+;;------------çª—å£ç•Œé¢è®¾ç½®ç»“æŸ-----------------
 
-;;--------------¶¨ÖÆ²Ù×÷Ï°¹ß-------------------
+;;--------------å®šåˆ¶æ“ä½œä¹ æƒ¯-------------------
 
 (setq font-lock-maximum-decoration t)
 (setq font-lock-global-modes '(not shell-mode text-mode))
 (setq font-lock-verbose t)
 (setq font-lock-maximum-size '((t . 1048576) (vm-mode . 5250000)))
-;; Óï·¨¸ßÁÁ¡£ ³ıÁËshell-mode ºÍ text-code Ö®ÍâµÄÄ£Ê½¶¼Ê¹ÓÃÓï·¨¸ßÁÁ
+;; è¯­æ³•é«˜äº®ã€‚ é™¤äº†shell-mode å’Œ text-code ä¹‹å¤–çš„æ¨¡å¼éƒ½ä½¿ç”¨è¯­æ³•é«˜äº®
 
 (setq column-number-mode t)
 (setq line-number-mode t)
-;; ÏÔÊ¾ĞĞÁĞºÅ
+;; æ˜¾ç¤ºè¡Œåˆ—å·
 
 (setq-default auto-fill-function 'do-auto-fill)
 ;; Autofill in all modes;;
 (setq default-fill-column 120)
-;; °Ñ fill-column ÉèÎª 60. ÕâÑùµÄÎÄ×Ö¸üºÃ¶Á
+;; æŠŠ fill-column è®¾ä¸º 60. è¿™æ ·çš„æ–‡å­—æ›´å¥½è¯»
 
 (setq-default indent-tabs-mode nil)
-(setq default-tab-width 4);;tab¼üÎª4¸ö×Ö·û¿í¶È
+(setq default-tab-width 4);;tabé”®ä¸º4ä¸ªå­—ç¬¦å®½åº¦
 (setq tab-stop-list ())
-;; ²»ÓÃ TAB ×Ö·ûÀ´indent, Õâ»áÒıÆğºÜ¶àÆæ¹ÖµÄ´íÎó. ±à¼­ Makefile µÄÊ±ºòÒ²²»ÓÃµ£ĞÄ, ÒòÎª makefile-mode »á°Ñ TAB ¼üÉèÖÃ³ÉÕıÕæµÄ TAB ×Ö·û²¢ÇÒ¼ÓÁÁÏÔÊ¾µÄ
+;; ä¸ç”¨ TAB å­—ç¬¦æ¥indent, è¿™ä¼šå¼•èµ·å¾ˆå¤šå¥‡æ€ªçš„é”™è¯¯. ç¼–è¾‘ Makefile çš„æ—¶å€™ä¹Ÿä¸ç”¨æ‹…å¿ƒ, å› ä¸º makefile-mode ä¼šæŠŠ TAB é”®è®¾ç½®æˆæ­£çœŸçš„ TAB å­—ç¬¦å¹¶ä¸”åŠ äº®æ˜¾ç¤ºçš„
 
-(setq sentence-end "\\([¡££¡£¿]\\|¡­¡­\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
+(setq sentence-end "\\([ã€‚ï¼ï¼Ÿ]\\|â€¦â€¦\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
 (setq sentence-end-double-space nil)
-;; ÉèÖÃ sentence-end ¿ÉÒÔÊ¶±ğÖĞÎÄ±êµã. ²»ÓÃÔÚ fill Ê±ÔÚ¾äºÅºó²åÁ½¸ö¿Õ¸ñ
+;; è®¾ç½® sentence-end å¯ä»¥è¯†åˆ«ä¸­æ–‡æ ‡ç‚¹. ä¸ç”¨åœ¨ fill æ—¶åœ¨å¥å·åæ’ä¸¤ä¸ªç©ºæ ¼
 
 (setq enable-recursive-minibuffers t)
-;; ¿ÉÒÔµİ¹éµØÊ¹ÓÃ minibuffer
+;; å¯ä»¥é€’å½’åœ°ä½¿ç”¨ minibuffer
 
 (setq scroll-margin 5 scroll-conservatively 10000)
-;; ·ÀÖ¹Ò³Ãæ¹ö¶¯Ê±Ìø¶¯, scroll-margin 5 ¿ÉÒÔÔÚ¿¿½üÆÁÄ»±ßÑØ5ĞĞÊ±¾Í¿ªÊ¼¹ö¶¯£¬¿ÉÒÔºÜºÃµØÔÄ¶ÁÉÏÏÂÎÄ
+;; é˜²æ­¢é¡µé¢æ»šåŠ¨æ—¶è·³åŠ¨, scroll-margin 5 å¯ä»¥åœ¨é è¿‘å±å¹•è¾¹æ²¿5è¡Œæ—¶å°±å¼€å§‹æ»šåŠ¨ï¼Œå¯ä»¥å¾ˆå¥½åœ°é˜…è¯»ä¸Šä¸‹æ–‡
 
 (setq default-major-mode 'text-mode)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
-;; ÉèÖÃÈ±ËğÖ÷ÌâÊÇtext, ²¢½øÈëauto-fill´ÎÄ£Ê½. ¶ø²»ÊÇ»ù±¾Ä£Ê½ fundamental-mode
+;; è®¾ç½®ç¼ºæŸä¸»é¢˜æ˜¯text, å¹¶è¿›å…¥auto-fillæ¬¡æ¨¡å¼. è€Œä¸æ˜¯åŸºæœ¬æ¨¡å¼ fundamental-mode
 
 (show-paren-mode t)
-;; ´ò¿ªÀ¨ºÅÆ¥ÅäÄ£Ê½
+;; æ‰“å¼€æ‹¬å·åŒ¹é…æ¨¡å¼
 
 (setq show-paren-style 'parenthesis)
-;; À¨ºÅÆ¥ÅäÊ±¿ÉÒÔÏÔÊ¾ÁíÍâÒ»±ßµÄÀ¨ºÅ,µ«¹â±ê²»»áÌøµ½ÁíÒ»¸öÀ¨ºÅ´¦
+;; æ‹¬å·åŒ¹é…æ—¶å¯ä»¥æ˜¾ç¤ºå¦å¤–ä¸€è¾¹çš„æ‹¬å·,ä½†å…‰æ ‡ä¸ä¼šè·³åˆ°å¦ä¸€ä¸ªæ‹¬å·å¤„
 
-;;-------------¶¨ÖÆ²Ù×÷Ï°¹ß½áÊø----------------
+;;-------------å®šåˆ¶æ“ä½œä¹ æƒ¯ç»“æŸ----------------
