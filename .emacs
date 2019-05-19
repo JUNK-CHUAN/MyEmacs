@@ -1,5 +1,12 @@
 ;;------------语言环境字符集设置(utf-8)-------------
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+;;(package-initialize)
+
 (set-language-environment 'Chinese-GB)
 (set-keyboard-coding-system 'utf-8)
 (set-clipboard-coding-system 'utf-8)
@@ -23,13 +30,13 @@
 (set-cursor-color "gold1")
 (set-mouse-color "gold1")
 
-(set-scroll-bar-mode nil)
+;;(set-scroll-bar-mode nil)
 ;;取消滚动栏
 
 ;;(customize-set-variable 'scroll-bar-mode 'right))
 ;;设置滚动栏在窗口右侧，而默认是在左侧
 
-(tool-bar-mode nil)
+;;(tool-bar-mode nil)
 ;;取消工具栏
 
 ;;启动设置
@@ -63,9 +70,9 @@
 (set-face-foreground 'secondary-selection "skyblue")
 (set-face-background 'secondary-selection "darkblue")
 
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-sanityinc-tomorrow-bright) 
+;;(require 'color-theme)
+;;(color-theme-initialize)
+;;(color-theme-sanityinc-tomorrow-bright) 
 ;;颜色主题
 
 ;;------------窗口界面设置结束-----------------
@@ -82,7 +89,7 @@
 
 ;;------------定制操作习惯--------------------
 
-(add-hook 'after-init-hook'global-company-mode)
+;;(add-hook 'after-init-hook'global-company-mode)
 ;;代码自动补全
 
 ;;start 设置剪切板共享
@@ -109,9 +116,8 @@
 
 (setq visible-bell t)
 
-(setq-defaultmake-backup-files nil)
+;;(setq-defaultmake-backup-files nil)
 ;;关闭自动生成临时文件
-
 
 (setq inhibit-startup-message t)
 ;;关闭emacs启动时的画面
@@ -131,7 +137,7 @@
 (setq column-number-mode t)
 (setq line-number-mode t)
 ;;显示行列号
-(global-linum-mode t)
+;;(global-linum-mode t)
 (setq mouse-yank-at-point t)
 ;;不要在鼠标点击的那个地方插入剪贴板内容。我不喜欢那样，经常把我的文档
 ;;搞的一团糟。我觉得先用光标定位，然后鼠标中键点击要好的多。不管你的光
@@ -215,9 +221,10 @@
 ;; 文档，和第二次编辑前的文档
 ;; (setq kept-new-versions 1);;备份最新的版本1次，理解同上
 ;; (setq delete-old-versions t);;删掉不属于以上3中版本的版本
-;; (setq backup-directory-alist '(("." . "~/backups")));;设置备份文件
-;; 的路径
-;; (setq backup-by-copying t);;备份设置方法，直接拷贝
+;; (setq backup-directory-alist '(("." . "~/backups")))
+;; 设置备份文件的路径
+;; (setq backup-by-copying t)
+;; 备份设置方法，直接拷贝
 ;; Emacs 中，改变文件时，默认都会产生备份文件(以 ~ 结尾的文件)。可以完
 ;; 全去掉; (并不可取)，也可以制定备份的方式。这里采用的是，把所有的文
 ;; 件备份都放在一个固定的地方("~/backups")。对于每个备份文件，保留最原
@@ -248,8 +255,8 @@
 ;;(setq mouse-yank-at-point t)
 ;;使用鼠标中键可以粘贴
 
-(setq user-full-name "Bluesky")
-(setq user-mail-address "whuchenxi2010@gmail.com")
+;;(setq user-full-name "Bluesky")
+;;(setq user-mail-address "whuchenxi2010@gmail.com")
 ;;设置有用的个人信息,这在很多地方有用。
 
 (setq require-final-newline t)
@@ -386,10 +393,9 @@
 (setq mark-diary-entries-in-calendar t) ; 标记calendar上有diary的日期
 (setq mark-holidays-in-calendar nil) ; 为了突出有diary的日期，calendar
                                         ; 上不标记节日
-(setq view-calendar-holidays-initially nil) ; 打开calendar的时候不显示
-                                        ; 一堆节日
+(setq view-calendar-holidays-initially nil) ; 打开calendar的时候不显示一堆节日
 
-;; 去掉不关心的节日，设定自己在意的节日，在 calendar 上用 h 显示节日
+;; 去掉不关心的节日，设定自己在意的节日，在calendar上用h显示节日
 (setq christian-holidays nil)
 (setq hebrew-holidays nil)
 (setq islamic-holidays nil)
@@ -407,7 +413,6 @@
                          (holiday-fixed 9 10 "教师节")
                          (holiday-fixed 10 1 "国庆节")
                          (holiday-fixed 12 25 "圣诞节")))
-
 ;;Calendar模式支持各种方式来更改当前日期
 ;;（这里的“前”是指还没有到来的那一天，“后”是指已经过去的日子）
 ;; q 退出calendar模式
@@ -454,13 +459,13 @@
 ;; 另外，还有一些特殊的，有意思的命令：
 ;; S 显示当天的日出日落时间(是大写的S)
 ;; p C 显示农历可以使用
-;; g C 使用农历移动日期可以使用
+;; g C 使用农Ãognitive Studies Committee meeting
 
 ;;-----------日历设置结束----------------
 ;;-----------日记设置---------------------
 
-(setq diary-file "~/diary/diary");; 默认的日记文件
-(setq diary-mail-addr "whuchenxi2010@gmail.com")
+;;(setq diary-file "~/diary/diary");; 默认的日记文件
+;;(setq diary-mail-addr "whuchenxi2010@gmail.com")
 ;;(add-hook 'diary-hook 'appt-make-list)
 ;;当你创建了一个'~/diary'文件，你就可以使用calendar去查看里面的内容。
 ;;你可以查看当天的事件，相关命令如下 ：
@@ -505,14 +510,13 @@
 ;; C-c @ C-h hide block
 ;; C-c @ C-c toggle hide/show
 
-
 ;;自动补全括号
 (defun my-c-mode-auto-pair ()
   (interactive)
   (make-local-variable 'skeleton-pair-alist)
   (setq skeleton-pair-alist '(
                               (?` ?` _ "''")
-                              (?\( ? _ " )")
+			      (?\( ? _ " )")
                               (?\[ ? _ " ]")
                               (?{ \n > _ \n ?} >)))
   (setq skeleton-pair t)
@@ -550,3 +554,20 @@
               auto-mode-alist))
 
 ;;------------方便编程操作设置结束--------------------
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-archives
+   (quote
+    (("gnu" . "https://elpa.gnu.org/packages/")
+     ("melpa" . "https://melpa.org/packages")
+     ("popkit" . "http://elpa.popkit.org/packages/")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
