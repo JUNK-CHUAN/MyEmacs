@@ -157,7 +157,7 @@
 ;;取消自动换行
 
 (setq-default indent-tabs-mode nil)
-(setq default-tab-width 4);;tab键为4个字符宽度
+(setq default-tab-width 2);;tab键为2个字符宽度
 (setq tab-stop-list ())
 ;;不用 TAB 字符来indent, 这会引起很多奇怪的错误。编辑 Makefile 的时候
 ;;也不用担心，因为 makefile-mode 会把 TAB 键设置成真正的 TAB 字符，并
@@ -571,3 +571,38 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+;;------------------------------------------
+;;插件添加
+;;-----------------------------------------
+;;自动补全
+(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories 
+         "~/.emacs.d/plugins/auto-complete/dict/")
+(ac-config-default)
+
+;;添加一些定义
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas/global-mode 1)
+;;------------------------------------------
+;;插件添加结束
+;;------------------------------------------
+
+
+;;----------添加PHP语法高亮插件-------------
+;; Put follow code into init.el
+(when (file-directory-p "~/.emacs.d/php-mode")
+  (load "~/.emacs.d/php-mode/php-mode-autoloads.el"))
+
+;; Any code below is *unnecessary*
+;; (require 'php-mode)
+;; (add-to-list 'load-path (expand-file-name "~/path/to/php-mode"))
+;; (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
+
+;;----------添加文件树侧边栏插件-------------
+(add-to-list 'load-path "~/.emacs.d/site-lisp")
+(require 'neotree)
+(global-set-key [f5] 'neotree-toggle)
