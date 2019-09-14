@@ -92,6 +92,14 @@
 ;;(add-hook 'after-init-hook'global-company-mode)
 ;;代码自动补全
 
+;;
+(set-default-font "Consolas-16.0")
+
+;;调整字体大小
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "C-0") 'text-scale-adjust)
+
 ;;start 设置剪切板共享
 (defun copy-from-osx ()
 (shell-command-to-string "pbpaste"))
@@ -234,7 +242,7 @@
 (setq make-backup-files nil)
 ;; 设定不产生备份文件
 
-;;(setq auto-save-mode nil)
+(setq auto-save-mode nil)
 ;;自动保存模式
 
 (setq-default make-backup-files nil)
@@ -290,9 +298,22 @@
 ;;(global-set-key [f2] 'emacs-wiki-find-file)
 ;;打开wiki
 
+(setq is-alpha nil)
+(defun transform-window(a ab)
+  (set-frame-parameter (selected-frame) 'alpha (list a ab))
+  (add-to-list 'default-frame-alist (cons 'alpha (list a ab)))
+)
+(global-set-key [f2](lambda()
+                        (interactive)
+                        (if is-alpha
+                            (transform-window 100 100)
+                          (transform-window 85 50))
+                        (setq is-alpha (not is-alpha))))
+;;打开窗体透明模式
+
 ;;(global-set-key [f3] 'repeat-complex-command)
 
-;;(global-set-key [f4] 'other-window)
+(global-set-key [f4] 'other-window)
 ;; 跳转到 Emacs 的另一个buffer窗口
 
 (defun du-onekey-compile ()
@@ -362,6 +383,19 @@
 
 (global-set-key (kbd "s-SPC") 'set-mark-command)
 ;;用win+space键来set-mark，这样，C-SPC就可以用来调用外部输入法了。
+
+;;C-c i : 跳转到上边窗口
+;;C-c k : 跳转到下边窗口
+;;C-c j : 跳转到左边窗口
+;;C-c l : 跳转到右边窗口
+;;分屏操作
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings)
+  (global-set-key (kbd "C-c j") 'windmove-left)
+  (global-set-key (kbd "C-c l") 'windmove-right)
+  (global-set-key (kbd "C-c i") 'windmove-up)
+  (global-set-key (kbd "C-c k") 'windmove-down))
+
 
 ;;----------定制操作习惯结束-------------
 
@@ -603,6 +637,27 @@
 ;; (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 
 ;;----------添加文件树侧边栏插件-------------
-(add-to-list 'load-path "~/.emacs.d/site-lisp")
+(add-to-list 'load-path "~/.emacs.d/neotree")
 (require 'neotree)
-(global-set-key [f5] 'neotree-toggle)
+(global-set-key [f3] 'neotree-toggle)
+
+
+
+;;-----------------解决Windows下Emacs窗口模式运行卡顿--------------------
+;; ============================================================
+;; 打开中文文档会f卡顿
+;; Setting Chinese Font
+;;(dolist (charset ‘(kana han symbol cjk-misc bopomofo))
+;;  (set-fontset-font (frame-parameter nil ‘font)
+;;   charset
+;;  (font-spec :family “Microsoft Yahei” :size 16))
+
+;; 设置垃圾回收，在 Windows 下，emacs25 版本会频繁出发垃圾回收，所以需要设置
+;;(when (eq system-type 'windows-nt)
+  ;;(setq gc-cons-threshold (* 512 1024 1024))
+  ;;(setq gc-cons-percentage 0.5)
+  ;;(run-with-idle-timer 5 t #'garbage-collect)
+  ;; 显示垃圾回收信息，这个可以作为调试用;;
+;;(setq garbage-collection-messages t))
+
+(setq inhibit-compacting-font-caches t) ; Don't compact font caches during GC.
